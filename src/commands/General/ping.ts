@@ -16,11 +16,11 @@ export class PingCommand extends Command {
   }
 
   public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-    const msg = await interaction.reply({ content: 'ping?', fetchReply: true });
+    const msg = await interaction.reply({ content: 'Ping?', fetchReply: true });
 
     const diff = msg.createdTimestamp - interaction.createdTimestamp;
     const ping = Math.round(this.container.client.ws.ping);
 
-    return interaction.editReply(`pong! bot latency: ${ping}ms. api latency: ${diff}ms.`);
+    return interaction.editReply(`Pong! Bot latency: ${ping}ms. API latency: ${diff}ms.`);
   }
 }
