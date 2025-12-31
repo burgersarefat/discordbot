@@ -3,10 +3,9 @@ import { SapphireClient, ApplicationCommandRegistries, RegisterBehavior } from '
 import { GatewayIntentBits } from 'discord.js';
 import { GUILD_IDS } from './config';
 
-// Set default behavior to overwrite commands
+// overwrite commands by default
 ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.Overwrite);
 
-// If guild IDs are configured, set them as default for all commands
 if (GUILD_IDS.length) {
     ApplicationCommandRegistries.setDefaultGuildIds(GUILD_IDS);
 }
@@ -14,7 +13,7 @@ if (GUILD_IDS.length) {
 const client = new SapphireClient({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
     loadMessageCommandListeners: true,
-    // Explicitly set the base directory to ensure commands are found
+    // set base dir for command loading
     baseUserDirectory: __dirname
 });
 
